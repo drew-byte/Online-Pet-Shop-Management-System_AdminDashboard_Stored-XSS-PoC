@@ -22,9 +22,9 @@ $address = $_POST['address'];
 $sql = "INSERT INTO tblorders VALUES(NULL,'$name','$address','$contact','$id','$qty','new',NULL,'$otype','$datep')";
 mysqli_query($con, $sql);
 ```
-Root Cause: Input from the order form is stored and later rendered in the admin dashboard without escaping, enabling stored XSS.
+**Root Cause:** Input from the order form is stored and later rendered in the admin dashboard without escaping, enabling stored XSS.
 
-Reflection Point:
+#### Reflection Point:
 -  Admin dashboard displays name and address fields directly from the database.
 
 Any JavaScript injected in these fields executes automatically when the admin views the dashboard.
